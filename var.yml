@@ -1,0 +1,16 @@
+--- # My First yaml playbook
+- hosts: demo
+  user: ansible1
+  sudo: yes
+  connection: ssh
+  gather_facts: no
+  vars_prompt:
+   - name: pkgname
+     prompt: Enter the package to install
+  tasks:
+   - name: Install httpd server on Redhat
+     action: yum name='{{ pkgname }}' state=installed
+     notify: Restart HTTPD
+  handlers:
+   - name: Restart HTTPD
+     action: service name=httpd state=restarted
