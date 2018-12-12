@@ -1,6 +1,6 @@
 --- # My First yaml playbook
 - hosts: demo
-  user: ansible1
+  user: ansible
   sudo: yes
   connection: ssh
   gather_facts: no
