@@ -1,0 +1,12 @@
+---
+- hosts: demo
+  become: yes
+  vars_prompt:
+    - name: pkgname
+      prompt: httpd
+  tasks:
+    - name: Install httpd server
+      yum:
+        name: "{{ pkgname }}"
+        state: installed
+

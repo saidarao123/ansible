@@ -1,0 +1,10 @@
+- hosts: demo
+  sudo: yes
+  tasks:
+    - name: add a list of users
+      user:
+       name: "{{ item }}" 
+       state: present
+      with_items:
+         - git
+         - maven
